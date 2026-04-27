@@ -1,1 +1,22 @@
-# DataStructures.Mastery.Lab
+# 🦷 Smart Dental Lab Management System (Data Structures Lab)
+
+هذا المشروع هو تطبيق عملي لدراسة هيكل البيانات **HashSet** في لغة #C، من خلال محاكاة نظام إدارة مخزون لمعمل أسنان.
+
+## 🚀 ما تم تطبيقه (Tasks Implemented):
+
+1. **Task 1: Data Filtering**
+   - استخدام `LINQ` مع الـ `HashSet` لفلترة البيانات واستخراج الأكواد التي تبدأ بحرف معين بدون تكرار.
+2. **Task 2: Union (الدمج الشامل)**
+   - دمج مخزنين مختلفين في مجموعة واحدة فريدة باستخدام `UnionWith`.
+3. **Task 3: Intersection (المواد المشتركة)**
+   - البحث عن المواد المنتهية الصلاحية الموجودة في المخزن باستخدام `IntersectWith`.
+4. **Task 4: Difference (التنظيف الفوري)**
+   - حذف قائمة كاملة من المواد التالفة من المخزن الرئيسي باستخدام `ExceptWith`.
+5. **Task 5: Symmetric Difference (كشف التميز)**
+   - استخراج المواد الموجودة في فرع واحد فقط وغير مشتركة بين الفروع باستخدام `SymmetricExceptWith`.
+6. **Task 6: Set Equality (فحص التطابق)**
+   - التحقق من تطابق شحنة واصلة مع أمر التوريد المطلوب باستخدام `SetEquals`.
+
+## 💡 ملاحظات تقنية (Technical Insights):
+- تم استخدام الـ `HashSet` لضمان **Unique Elements** (عدم التكرار).
+- العمليات على الـ HashSet سريعة جداً (O(1)) مقارنة بالـ List في عمليات البحث والتحقق
