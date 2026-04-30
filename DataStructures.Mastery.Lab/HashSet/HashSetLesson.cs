@@ -20,5 +20,15 @@
         // شحنة جديدة وأمر توريد (للمهمة السادسة)
         public static HashSet<string> NewShipment = new HashSet<string> { "Acrylic", "Wax", "Porcelain" };
         public static HashSet<string> OrderRequest = new HashSet<string> { "Wax", "Porcelain", "Acrylic" };
+
+        // 1. قائمة وزارة الصحة (المواد الإلزامية)
+        public static HashSet<string> MandatoryMaterials = new HashSet<string> { "D101", "S201" };
+
+        // 2. طلبيات الأطباء المتعارضة
+        public static HashSet<string> DrAliOrder = new HashSet<string> { "D102", "M301" };
+        public static HashSet<string> DrZainOrder = new HashSet<string> { "M301", "D999" };
+
+        // 3. طلبية الـ VIP الضخمة
+        public static HashSet<string> VipOrder = new HashSet<string> { "D101", "D103", "D505" };
     }
 }

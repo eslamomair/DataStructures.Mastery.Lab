@@ -75,8 +75,78 @@ internal class Program
         var isAligned = HashSetLesson.NewShipment.SetEquals(HashSetLesson.OrderRequest);
         Console.WriteLine(isAligned ? "Is Right" : "Not Right");
 
+        //المطلوب: اطبع "المعمل مطابق للمواصفات" فقط إذا كان StoreA يحتوي على كل ما في MandatoryMaterials.
+        // هذا المعادله يمكن ان يكون ناتجها خطا لعده اسباب
+        /* 1. StoreA قد يحتوي على مواد اضافيه غير موجوده في MandatoryMaterials
+             2. StoreA قد لا يحتوي على كل المواد الموجوده في MandatoryMaterials
+             3. StoreA قد يحتوي على مواد منتهيه الصلاحيه او غير صالحة للاستخدام
+        -- الناتج سيكون فولس لاننا طبقا شروط قبل هذه على الهاش سيت 
+        */
+        if (HashSetLesson.StoreA.SetEquals(HashSetLesson.MandatoryMaterials))
+        {
+            Console.WriteLine("The laboratory complies with the specifications");
+        }
+        else
+        {
+            Console.WriteLine("The laboratory does not comply with the specifications");
+        }
+
+        /* الحل الاكثر دقه هو استخدام IsSubsetOf للتحقق مما إذا كانت كل المواد الإلزامية موجودة في StoreA، بغض النظر عن وجود مواد إضافية أو منتهية الصلاحية.
+         * */
+        if (HashSetLesson.StoreA.IsSupersetOf(HashSetLesson.MandatoryMaterials))
+        {
+            Console.WriteLine("The laboratory complies with the specifications");
+        }
+        else
+        {
+            Console.WriteLine("The laboratory does not comply with the specifications");
+        }
+
+
+
+        if (HashSetLesson.DrAliOrder.Overlaps(HashSetLesson.DrZainOrder))
+        {
+            Console.WriteLine("Yes it Have");
+        }
+        else
+            Console.WriteLine("No, its not Hvae");
+
+        /*المهمة 3: جدوى الفرع (Branch Justification)
+
+المعطيات: StoreA و BranchB.
+
+المطلوب: هل كل العناصر الموجودة في BranchB موجودة بالفعل داخل StoreA؟ (لنعرف هل الفرع مكرر أم لا).
+        */
+
+        if (HashSetLesson.BranchB.IsSubsetOf(HashSetLesson.StoreA))
+        {
+            Console.WriteLine("Yes it Have");
+        }
+        else
+            Console.WriteLine("No, its not Hvae");
+
+
+        /*المهمة 4: فحص تغطية الطلبية الضخمة (VIP)
+
+المعطيات: StoreA, BranchB, و VipOrder.
+
+المطلوب: هل إجمالي المواد في (المخزن الرئيسي والفرع معاً) يغطي كافة احتياجات VipOrder؟
+        */
+
+        HashSet<string> ItCompleted = new HashSet<string>(HashSetLesson.StoreA);
+        ItCompleted.UnionWith(HashSetLesson.BranchB);
+
+        if (ItCompleted.IsSupersetOf(HashSetLesson.VipOrder))
+        {
+            Console.WriteLine("Yes , engho");
+        }
+        else
+            Console.WriteLine("no , Not enghof");
 
         Console.WriteLine("\nPress any key to exit...");
         Console.ReadKey();
+
+
+
     }
 }
